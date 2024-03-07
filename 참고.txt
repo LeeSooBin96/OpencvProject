@@ -1,0 +1,38 @@
+참고 사이트 모음
+C# OpenCvSharp을 이용한 사각형 검출 방법 --소스 있음
+https://bigenergy.tistory.com/entry/C-OpenCvSharp%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EA%B0%81%ED%98%95-%EA%B2%80%EC%B6%9C-%EB%B0%A9%EB%B2%95#google_vignette
+[C#] OpenCvSharp 이미지 사각, 원형 검출하기 --OpenCv 포스팅 있음
+https://codingman.tistory.com/66
+OpenCV 사용해서 실시간으로 도형 검출하기(shape detection) 2 / 2 - 웹캠에서 검출
+https://webnautes.tistory.com/1193
+C# OpenCV 강좌 : 제 20강 - 윤곽선 검출 --OpenCv 강좌 --17버전으로 해야함
+https://076923.github.io/posts/C-opencv-20/
+[WPF] OpenCvSharp4로 윈도우 안에 카메라 영상 그리기
+https://hwan001.tistory.com/145?category=1041434
+C# - OpenCvSharp을 이용한 Webcam 영상 처리 + Direct2D
+https://m.blog.naver.com/techshare/221165041207
+
+
+환경 설정 --22 기준 
+프로젝트 생성
+https://hwan001.tistory.com/73?category=1041434
+OpenCVSharp4 적용
+https://hwan001.tistory.com/144
+웹캠 화면에 띄우기
+https://hwan001.tistory.com/145
+
+필수 요구사항
+C# WPF 에서 웹캠 연동 V
+영상에서 생상 구분
+영상에서 도형 구분
+서버/클라이언트 구조
+
+색상 추출
+https://shalchoong.tistory.com/37
+
+파이썬이기는 하지만 영상(프레임) 전송 예제
+https://blog.naver.com/PostView.nhn?blogId=dldudcks1779&logNo=222024824853
+윈폼이기는 하지만 캡쳐 전송 예제
+https://www.csharpstudy.com/net/article/13-TCP-%ed%99%94%eb%a9%b4-%ec%a0%84%ec%86%a1-%ec%98%88%ec%a0%9c
+WCF
+https://icodebroker.com/archives/5143
