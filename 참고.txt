@@ -11,6 +11,8 @@ https://076923.github.io/posts/C-opencv-20/
 https://hwan001.tistory.com/145?category=1041434
 C# - OpenCvSharp을 이용한 Webcam 영상 처리 + Direct2D
 https://m.blog.naver.com/techshare/221165041207
+여긔 블로그 - 윈폼기준
+https://shalchoong.tistory.com/21
 
 
 환경 설정 --22 기준 
@@ -25,6 +27,7 @@ https://hwan001.tistory.com/145
 C# WPF 에서 웹캠 연동 V
 영상에서 생상 구분
 영상에서 도형 구분
+좌표, 위치 출력
 서버/클라이언트 구조
 
 색상 추출
