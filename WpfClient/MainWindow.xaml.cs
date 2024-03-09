@@ -77,12 +77,12 @@ namespace WpfClient
                 /*서버와 통신 규약 : 늘 전체 메시지 길이 먼저
                  그 후에 약속된코드@내용 보내기*/
 
-                //string tmpMSG = "@Product@" + productName.Text;
-                //tmpMSG= tmpMSG.Length.ToString()+tmpMSG;
-                int a = 4;
+                string msg = "Product@" + productName.Text;
+                byte[] msgBytes = Encoding.Default.GetBytes(msg);
                 byte[] len = new byte[4];
-                len = BitConverter.GetBytes(a);
-                stream.Write(len, 0, 4);
+                len = BitConverter.GetBytes(msgBytes.Length);
+                stream.Write(len, 0, 4); //메시지 길이 송신
+                stream.Write(msgBytes, 0, msgBytes.Length); //메시지 송신
             }
             catch (SocketException err)
             {
@@ -151,8 +151,18 @@ namespace WpfClient
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { //화면 캡처, 캡처본 서버에 송신
+            Mat screenShot = new Mat();
+            cam.Read(screenShot);
+            //너는 한번에 보내도 되니까 길이보내고 데이터 한번에 전송
+            byte[] size = new byte[4];
+            size = BitConverter.GetBytes(screenShot.ToBytes().Length);
+            stream.Write(size, 0, 4); //데이터 크기 먼저 보내기
+            MessageBox.Show("송신데이터 크기: " + BitConverter.ToInt32(size, 0).ToString());
 
+            byte[] bytes = new byte[screenShot.ToBytes().Length]; //바이트 배열 생성
+            bytes = screenShot.ToBytes();
+            stream.Write(bytes, 0, bytes.Length); //데이터 한번에 보내기
         }
     }
 }

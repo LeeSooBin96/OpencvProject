@@ -19,9 +19,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
+//OpenCV
+using OpenCvSharp;
+using OpenCvSharp.WpfExtensions;
+
 namespace WpfServer
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         private TcpListener server = null;
         private Thread hTClnt = null; //클라이언트 접속 처리할 스레드
@@ -87,23 +91,43 @@ namespace WpfServer
         {
             MessageBox.Show("클라이언트 접속");
 
-            //NetworkStream stream = clnt.GetStream();
             //사용할 버퍼
             const int BUF_SIZE = 10000;
             byte[] buffer = new byte[BUF_SIZE];
 
-            //while(true)
-            //{
-                /*클라이언트와 통신 규약 : 메시지 길이 수신
-                그 후 약속된코드@내용 수신*/
-                
-                stream.Read(buffer, 0, 4); //메시지 길이 수신
-            MessageBox.Show(BitConverter.ToInt32(buffer,0).ToString());
-            int strLen = BitConverter.ToInt32(buffer, 0); //메시지 길이 저장
-            //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
-            //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
+            /*클라이언트와 통신 규약 : 메시지 길이 수신
+            그 후 약속된코드@내용 수신*/
 
-            //}
+            while (true)
+            {
+                stream.Read(buffer, 0, 4); //메시지 길이 수신
+                MessageBox.Show(BitConverter.ToInt32(buffer, 0).ToString());
+                int strLen = BitConverter.ToInt32(buffer, 0); //메시지 길이 저장
+
+                if (strLen > BUF_SIZE)
+                { //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
+                    List<byte> bufArr = new List<byte>();
+                    for (int i = 0; i < strLen / BUF_SIZE; i++)
+                    { //버퍼사이즈 만큼 읽어 들이기
+                        stream.Read(buffer, 0, BUF_SIZE);
+                        bufArr.AddRange(buffer);
+                    }
+                    stream.Read(buffer, 0, strLen % BUF_SIZE); //나머지 읽기
+                    MessageBox.Show((strLen % BUF_SIZE).ToString());
+                    bufArr.AddRange(buffer);
+                    MessageBox.Show("수신된 데이터 크기:" + bufArr.Count.ToString());
+                    //테스트
+                    Mat frame = Mat.FromImageData(bufArr.ToArray(), ImreadModes.AnyColor);
+                    //screen.Source = WriteableBitmapConverter.ToWriteableBitmap(frame);
+                    Cv2.ImShow("test", frame);
+                }
+                else
+                { //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
+                    stream.Read(buffer, 0, strLen);
+                    //MessageBox.Show(Encoding.Default.GetString(buffer)); //문자열로
+                }
+
+            }
         }
     }
 }
