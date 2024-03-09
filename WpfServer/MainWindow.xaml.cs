@@ -30,9 +30,10 @@ namespace WpfServer
             InitializeComponent();
             //일단은 여기가 종료되어야 창이 나오니까
             //여기서 비동기로 이 생성자를 완료(반환)시키는 것과 서버 오픈하는것을 구현해야한다.
-            Thread thr = new Thread(new ThreadStart(ServerInit));
-            thr.Start();
-            thr.Join();
+            //Thread thr = new Thread(new ThreadStart(ServerInit));
+            //thr.Start();
+            //thr.Join(); //함수 종료 보장만 되면 되기 때문에 여기서 쓰레드는 필요가 없음
+            ServerInit();
         }
         //서버는 한번만 오픈하면 되니까
         private void ServerInit() //서버 정보 초기화 및 오픈
@@ -50,15 +51,15 @@ namespace WpfServer
                 //계속해서 클라이언트 받기 위한 스레드
                 hTClnt = new Thread(new ThreadStart(ClientHandle));
                 hTClnt.Start(); //스레드 시작
+                MessageBox.Show("서버 오픈 완료");
             }
-            catch(SocketException err)
+            catch (SocketException err)
             {
                 MessageBox.Show(err.ToString());
             }
             finally
             {
                 //server.Stop(); //서버는 종료되면 안돼
-                MessageBox.Show("서버 오픈 완료");
             }
         }
         
@@ -68,8 +69,41 @@ namespace WpfServer
             {
                 MessageBox.Show("클라이언트 연결 대기중.");
                 TcpClient clnt = server.AcceptTcpClient();
-                MessageBox.Show("클라이언트 접속");
+                //클라이언트 접속하면 각각의 스레드로 보내기
+                Thread hclnt = new Thread(new ThreadStart(()=> { RecvMSG(clnt.GetStream()); }));
+                hclnt.Start();
+                //그 안에서 데이터 송수신
+                //이제 메시지 처리할 준비 
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        { //창 닫을때 서버 종료
+            server.Stop();
+            MessageBox.Show("서버가 종료되었습니다.");
+        }
+
+        private void RecvMSG(NetworkStream stream)
+        {
+            MessageBox.Show("클라이언트 접속");
+
+            //NetworkStream stream = clnt.GetStream();
+            //사용할 버퍼
+            const int BUF_SIZE = 10000;
+            byte[] buffer = new byte[BUF_SIZE];
+
+            //while(true)
+            //{
+                /*클라이언트와 통신 규약 : 메시지 길이 수신
+                그 후 약속된코드@내용 수신*/
+                
+                stream.Read(buffer, 0, 4); //메시지 길이 수신
+            MessageBox.Show(BitConverter.ToInt32(buffer,0).ToString());
+            int strLen = BitConverter.ToInt32(buffer, 0); //메시지 길이 저장
+            //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
+            //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
+
+            //}
         }
     }
 }

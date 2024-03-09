@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfServer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400">
+        Title="MainWindow" Height="300" Width="400"
+        Closed="Window_Closed">
     <Grid>
         <Image Name="screen" Margin="10,10,10,20"/>
     </Grid>

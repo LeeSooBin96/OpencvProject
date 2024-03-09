@@ -5,18 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
         Title="MainWindow" Height="400" Width="700">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Name="screen" Grid.ColumnSpan="2" Margin="10,10,10,20"/>
-        <Button Click="WorkStart" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50">업무시작</Button>
-        <Button Click="Button_Click" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50">캡쳐</Button>
+        <Image Name="screen" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,10,10,20"/>
+        <ComboBox Name="productName" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">
+            <ComboBoxItem>product 1</ComboBoxItem>
+            <ComboBoxItem>product 2</ComboBoxItem>
+            <ComboBoxItem>product 3</ComboBoxItem>
+        </ComboBox>
+        <Button Click="WorkStart" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">업무시작</Button>
+        <Button Click="Button_Click" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
     </Grid>
 </Window>
