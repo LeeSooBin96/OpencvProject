@@ -23,7 +23,7 @@ namespace WpfServer
         private void ServerInit() //서버 정보 초기화 및 오픈
         {
             server = new HandlingServer();
-            if (server.ServerOpen("127.0.0.1", 6101))
+            if (server.ServerOpen("10.10.20.98", 6101))
             {
                 //다중 클라이언트 연결 요청 수락을 위한 스레드 생성
                 hTClnt = new Thread(new ThreadStart(ClientHandle));
