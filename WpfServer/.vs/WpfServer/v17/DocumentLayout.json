@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\",
+  "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\happyfamily\\cs\\wpfserver\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,11 +34,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "HandlingServer.cs",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\HandlingServer.cs",
+              "RelativeDocumentMoniker": "HandlingServer.cs",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\HandlingServer.cs",
+              "RelativeToolTip": "HandlingServer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T07:37:04.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-08T10:20:40.018Z",
@@ -40,13 +61,47 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\HAPPYFAMILY\\CS\\WpfServer\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAwwHIAAABDAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwEcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T10:20:39.662Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "c70cb8e4-b4d7-4ba5-8fa8-4d7a8c239d2c",
+        "Display": 0,
+        "X": 155,
+        "Y": 6,
+        "Width": 847,
+        "Height": 904,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CheckingImage.cs",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\CheckingImage.cs",
+              "RelativeDocumentMoniker": "CheckingImage.cs",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\CheckingImage.cs",
+              "RelativeToolTip": "CheckingImage.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwAEAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T06:32:11.63Z",
               "EditorCaption": ""
             }
           ]

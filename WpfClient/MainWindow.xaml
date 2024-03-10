@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
@@ -20,13 +21,14 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Name="screen" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10,10,10,20"/>
-        <ComboBox Name="productName" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">
+        <Image Name="screen" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="10,10,10,20"/>
+        <Label Name="notice" Grid.Column="2" Foreground="Red" FontWeight="Bold" HorizontalContentAlignment="Center">제품을 선택해주세요!</Label>
+        <ComboBox Name="productName" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">
             <ComboBoxItem>product 1</ComboBoxItem>
             <ComboBoxItem>product 2</ComboBoxItem>
             <ComboBoxItem>product 3</ComboBoxItem>
         </ComboBox>
-        <Button Click="WorkStart" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">업무시작</Button>
-        <Button Click="Button_Click" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
+        <Button Click="WorkStart" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">업무시작</Button>
+        <Button Click="Button_Click" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
     </Grid>
 </Window>
