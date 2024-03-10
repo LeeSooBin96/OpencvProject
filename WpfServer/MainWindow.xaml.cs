@@ -69,6 +69,9 @@ namespace WpfServer
                         //제품 이미지 로드
                         CKimg = new CheckingImage(msg);
                         break;
+                    case "Screen":
+                        MessageBox.Show(msg); //화면 수신 확인
+                        break;
                 }
             }
         }

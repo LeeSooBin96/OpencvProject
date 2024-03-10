@@ -29,6 +29,7 @@
             <ComboBoxItem>product 3</ComboBoxItem>
         </ComboBox>
         <Button Click="WorkStart" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">업무시작</Button>
-        <Button Click="Button_Click" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
+        <Button Click="CaptureScreen" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
+        <Button Click="WorkStop" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Background="Red">업무종료</Button>
     </Grid>
 </Window>

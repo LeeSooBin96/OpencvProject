@@ -34,11 +34,11 @@ namespace WpfClient
                 MessageBox.Show("검사할 제품을 선택해주세요.");
                 return;
             }
-            notice.Visibility = 0;
+            notice.Content = "";
             MessageBox.Show("업무가 시작됩니다.");
 
             if(client==null) client = new HandlingClient();
-            if(client.ConnectingServer("127.0.0.1", 6101))
+            if(client.ConnectingServer("10.10.20.98", 6101))
             { //연결 성공
                 client.SendData("Product@" + productName.Text);
             }
@@ -108,9 +108,17 @@ namespace WpfClient
             client.ClosingConnect();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void WorkStop(object sender, RoutedEventArgs e)
         { 
-            
+
+        }
+
+        private void CaptureScreen(object sender, RoutedEventArgs e)
+        {
+            if (client == null) return; //서버 연결 안되어있으면 동작 안함
+            Mat shot = new Mat(); //객체 생성
+            shot = frame; //현재 화면 저장 --이부분 안하고 바로 frame으로 보낼까
+            client.SendData("Screen@" + shot.ToString()); //서버에 화면 전송
         }
     }
 }

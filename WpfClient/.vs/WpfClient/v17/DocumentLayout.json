@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfclient\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfclient\\handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfclient\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HandlingClient.cs",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\HandlingClient.cs",
+              "RelativeDocumentMoniker": "HandlingClient.cs",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\HandlingClient.cs",
+              "RelativeToolTip": "HandlingClient.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAgwB4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T23:05:59.75Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -33,17 +50,18 @@
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-08T11:00:22.423Z"
+              "WhenOpened": "2024-03-08T11:00:22.423Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfClient\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAqwGoAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T11:00:22.068Z",
               "EditorCaption": ""
