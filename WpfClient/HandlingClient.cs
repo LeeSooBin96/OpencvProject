@@ -73,34 +73,37 @@ namespace WpfClient
         public byte[] RecvData()
         {
             //사용할 버퍼
-            const int BUF_SIZE = 10000;
-            byte[] buffer = new byte[BUF_SIZE];
+            //const int BUF_SIZE = 10000;
+            //byte[] buffer = new byte[BUF_SIZE];
 
-            /*클라이언트와 통신 규약 : 메시지 길이 수신 그 후 약속된코드@내용 수신*/
-
-            int readLen = stream.Read(buffer, 0, 4); //메시지 길이 수신
+            /*서버와 통신 규약 : 메시지 길이 수신 그 후 내용 수신*/
+            byte[] len = new byte[4];
+            int readLen = stream.Read(len, 0, 4); //메시지 길이 수신
             if (readLen == 0) return null; //소켓 종료 시
-            int strLen = BitConverter.ToInt32(buffer, 0); //메시지 길이 저장
+            int strLen = BitConverter.ToInt32(len, 0); //메시지 길이 저장
 
-            if (strLen > BUF_SIZE)
-            { //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
-                List<byte> bufArr = new List<byte>();
-                for (int i = 0; i < strLen / BUF_SIZE; i++)
-                { //버퍼사이즈 만큼 읽어 들이기
-                    stream.Read(buffer, 0, BUF_SIZE);
-                    bufArr.AddRange(buffer);
-                }
-                stream.Read(buffer, 0, strLen % BUF_SIZE); //나머지 읽기
-                MessageBox.Show((strLen % BUF_SIZE).ToString());
-                bufArr.AddRange(buffer);
-                MessageBox.Show("수신된 데이터 크기:" + bufArr.Count.ToString());
-                return bufArr.ToArray();
-            }
-            else
-            { //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
-                stream.Read(buffer, 0, strLen);
-                return buffer;
-            }
+            byte[] buffer = new byte[strLen]; //받을 메시지 길이만큼
+            stream.Read(buffer, 0, buffer.Length);
+            return buffer;
+            //if (strLen > BUF_SIZE)
+            //{ //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
+            //    List<byte> bufArr = new List<byte>();
+            //    for (int i = 0; i < strLen / BUF_SIZE; i++)
+            //    { //버퍼사이즈 만큼 읽어 들이기
+            //        stream.Read(buffer, 0, BUF_SIZE);
+            //        bufArr.AddRange(buffer);
+            //    }
+            //    stream.Read(buffer, 0, strLen % BUF_SIZE); //나머지 읽기
+            //    MessageBox.Show((strLen % BUF_SIZE).ToString());
+            //    bufArr.AddRange(buffer);
+            //    MessageBox.Show("수신된 데이터 크기:" + bufArr.Count.ToString());
+            //    return bufArr.ToArray();
+            //}
+            //else
+            //{ //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
+            //    stream.Read(buffer, 0, strLen);
+            //    return buffer;
+            //}
         }
     }
 }

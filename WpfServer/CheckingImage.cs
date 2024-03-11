@@ -58,7 +58,7 @@ namespace WpfServer
         public void CompareWith(byte[] compBytes)
         { //바이트 배열로 받아올 것
             //캡처본 잘 전달되나 테스트 --완료
-            MessageBox.Show(compBytes.Length.ToString()); //아 다 못간거네 --@에 스플릿 되었던것...
+            //MessageBox.Show(compBytes.Length.ToString()); //아 다 못간거네 --@에 스플릿 되었던것...
             Application.Current.Dispatcher.Invoke(() =>
             {
                 Cv2.ImShow("test"+ compBytes.Length.ToString(), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
@@ -80,7 +80,8 @@ namespace WpfServer
                 default:
                     break;
             }
-            
+            /*1차 검사 : 색상과 도형 추출 및 일치 검사 마치고 그 결과를 받아서 저장해 둘 bool값 필요*/
+            /*2차 검사 : 정상 제품 이미지와 일치율 비교 기준은...어떻게 하려나 이것도 어느정도 이상이면 true 저장*/
         }
     }
 }

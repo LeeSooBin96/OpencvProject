@@ -117,6 +117,7 @@ namespace WpfClient
 
         private void CaptureScreen(object sender, RoutedEventArgs e)
         {
+            /*NG나 PASS팝업창이 떠있는 경우 닫아야함*/
             if (client == null) return; //서버 연결 안되어있으면 동작 안함
             Mat shot = new Mat(); //객체 생성
             shot = frame; //현재 화면 저장 --이부분 안하고 바로 frame으로 보낼까
@@ -127,6 +128,9 @@ namespace WpfClient
             arr.AddRange(shot.ToBytes());
             //MessageBox.Show("클" + arr.ToArray().Length.ToString());
             client.SendData(arr.ToArray()); //서버에 화면 전송
+            /*검사 결과 수신 받아야한다.
+             NG면 NG팝업창이랑 NG부분 체크된 사진 띄우기
+            PASS면 PASS팝업창 띄우기.*/
         }
     }
 }

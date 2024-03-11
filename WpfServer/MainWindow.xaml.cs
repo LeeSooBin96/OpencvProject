@@ -82,6 +82,9 @@ namespace WpfServer
                         arr.RemoveRange(0, Encoding.Default.GetByteCount(code+'@'));
                         //이제 체크해야함
                         CKimg.CompareWith(arr.ToArray());
+                        /*체크 결과 클라이언트에게 송신해야하는 데?
+                         NG면 NG여부와 전송할 추출 사진 크기, 사진 파일 전송
+                        PASS면 PASS만*/
                         break;
                 }
             }
