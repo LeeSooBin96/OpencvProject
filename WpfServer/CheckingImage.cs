@@ -18,10 +18,10 @@ namespace WpfServer
     internal class CheckingImage
     {
         byte[] normalP = null; //정상제품 이미지 저장할 바이트 배열
-        
+        string num;
+
         public CheckingImage(string productName) //생성자
         {
-            string num;
             switch(productName) //제품명에 따른 정상 제품 이미지 로드해야함
             {
                 case "product 1":
@@ -63,8 +63,24 @@ namespace WpfServer
             {
                 Cv2.ImShow("test"+ compBytes.Length.ToString(), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
             });
-            //1번 제품 검사
-            B_Check_1.aaa(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+            switch(num)
+            {
+                case "1":
+                    //1번 제품 검사
+                    B_Check_1.Check_1(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    break;
+                case "2":
+                    //2번 제품 검사
+                    B_Check_2.Check_2(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    break;
+                case "3":
+                    //3번 제품 검사
+                    B_Check_3.Check_3(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }

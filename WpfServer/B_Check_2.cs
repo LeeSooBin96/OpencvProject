@@ -29,9 +29,9 @@ using System.Diagnostics;
 
 namespace ttest
 {
-    public class B_Check_1
+    public class B_Check_2
     {
-        public static void Check_1(Mat t_frame)
+        public static void Check_2(Mat t_frame)
         {
             //MainWindow MW = mw;
 
@@ -61,6 +61,9 @@ namespace ttest
                 int x = 0; //x 좌표 시작 위치
                 int y = 0; //y 좌표 시작 위치
 
+                ////// 첫 번째 사각형 그리기 //aaa는 원본 복사한거
+                ////관심구역 그저 표현한거
+
                 //첫번째 영역
                 Mat M_roi_1 = aaa[i].Clone(); //원본 복사하고
                 Mat roi_1 = new Mat(M_roi_1, new Rect(x + 100, y + 50, x + roiWidth - 120, y + roiHeight - 10)); //관심 구역 지정
@@ -80,17 +83,19 @@ namespace ttest
                         var M = Cv2.Moments(c);
                         var cx = (int)(M.M10 / M.M00) + 20;
                         var cy = (int)(M.M01 / M.M00) + 30; //이 3놈 중앙 찾음
+                        Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
+                        Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
                         if (shape == "circle")
                         {
                             Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
                         }
                     }
+
                 }
 
                 //2번째 영역
                 Mat M_roi_2 = aaa[i].Clone();
-                Mat roi_2 = new Mat(M_roi_2, new Rect(x + 120, y + 130, x + roiWidth - 160, y + roiHeight + 20)); //관심 구역 지정
-
+                Mat roi_2 = new Mat(M_roi_2, new Rect(x + 120, y + 130, x + roiWidth - 160, y + roiHeight)); //관심 구역 지정
                 Cv2.CvtColor(roi_2, roi_2, ColorConversionCodes.BGR2GRAY); //흑백으로 만들고
                 Cv2.Threshold(roi_2, roi_2, 127, 255, ThresholdTypes.Binary); //
                 Cv2.FindContours(roi_2, out var contours2, out var hierarchy2, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
@@ -125,13 +130,13 @@ namespace ttest
                         var M = Cv2.Moments(c);
                         var cx = (int)(M.M10 / M.M00);
                         var cy = (int)(M.M01 / M.M00) + 220; //이 3놈 중앙 찾음
-                        if (shape == "square")
+                                                             //Cv2.DrawContours(aaa, contours3, -1, Scalar.Red, 2); //윤곽그리고
+                        if (shape == "triangle")
                         {
                             Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Red, 2);
                         }
                     }
                 }
-
                 foreach (var c in contours4)
                 {
                     var area = Cv2.ContourArea(c);
@@ -148,18 +153,22 @@ namespace ttest
                         }
                     }
                 }
+               
                 Cv2.Rectangle(aaa[i], new Point(x + 20, y + 30), new Point(x + roiWidth, y + roiHeight + 20), new Scalar(0, 0, 0), 1);
                 Cv2.Rectangle(aaa[i], new Point(x + 20, y + 120), new Point(x + roiWidth, y + roiHeight + 120), new Scalar(0, 0, 0), 1);
                 Cv2.Rectangle(aaa[i], new Point(x + 20, y + 220), new Point(x + roiWidth, y + roiHeight + 350), new Scalar(0, 0, 0), 1);
 
                 Cv2.Rectangle(aaa[i], new Point(x + 110, y + 60), new Point(x + roiWidth - 30, y + roiHeight + 20), new Scalar(100, 255, 255), 1);
                 Cv2.Rectangle(aaa[i], new Point(x + 120, y + 130), new Point(x + roiWidth - 40, y + roiHeight + 130), new Scalar(100, 255, 255), 1);
-            }
 
+
+            }
             for (int i = 0; i < 3; i++)
             {
                 Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
             }
+
+
 
         }
         public static string GetShape(Point[] c)
@@ -182,7 +191,6 @@ namespace ttest
             }
             return shape;
         }
-
     }
 }
 
