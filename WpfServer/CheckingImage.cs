@@ -11,6 +11,7 @@ using System.Runtime.DesignerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ttest;
 
 namespace WpfServer
 { 
@@ -62,6 +63,8 @@ namespace WpfServer
             {
                 Cv2.ImShow("test"+ compBytes.Length.ToString(), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
             });
+            //1번 제품 검사
+            B_Check_1.aaa(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
         }
     }
 }
