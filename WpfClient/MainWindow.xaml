@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfClient"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="MainWindow" Height="400" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Name="screen" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="10,10,10,20"/>
+        <Label Name="notice" Grid.Column="2" Foreground="Red" FontWeight="Bold" HorizontalContentAlignment="Center">제품을 선택해주세요!</Label>
+        <ComboBox Name="productName" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">
+            <ComboBoxItem>product 1</ComboBoxItem>
+            <ComboBoxItem>product 2</ComboBoxItem>
+            <ComboBoxItem>product 3</ComboBoxItem>
+        </ComboBox>
+        <Button Click="WorkStart" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,20,0">업무시작</Button>
+        <Button Click="CaptureScreen" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50">캡쳐</Button>
+        <Button Click="WorkStop" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Background="Red">업무종료</Button>
+    </Grid>
+</Window>
