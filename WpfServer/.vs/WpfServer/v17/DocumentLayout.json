@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\matchingimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:matchingimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,6 +51,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MatchingIMG.cs",
+              "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MatchingIMG.cs",
+              "RelativeDocumentMoniker": "MatchingIMG.cs",
+              "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MatchingIMG.cs",
+              "RelativeToolTip": "MatchingIMG.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T08:34:13.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "B_Check_1.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\B_Check_1.cs",
               "RelativeDocumentMoniker": "B_Check_1.cs",
@@ -59,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CheckingImage.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\CheckingImage.cs",
               "RelativeDocumentMoniker": "CheckingImage.cs",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HandlingServer.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\HandlingServer.cs",
               "RelativeDocumentMoniker": "HandlingServer.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "B_Check_2.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\B_Check_2.cs",
               "RelativeDocumentMoniker": "B_Check_2.cs",
@@ -107,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "B_Check_3.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\B_Check_3.cs",
               "RelativeDocumentMoniker": "B_Check_3.cs",
@@ -119,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
