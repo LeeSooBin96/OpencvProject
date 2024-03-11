@@ -379,6 +379,43 @@ namespace WPF
             {
                 Mat sub = new Mat(); // 일단 선언
 
+                //Mat gray_image1 = mat.CvtColor(ColorConversionCodes.BGR2GRAY); // 회색조변환
+                //Mat gray_image2 = temp.CvtColor(ColorConversionCodes.BGR2GRAY); // 회색조변환
+
+                //Cv2.Absdiff(gray_image1, gray_image2, sub); // 회색변환 이미지 불량부분찾기작업 -> sub로 출력
+                Cv2.Absdiff(mat, temp, sub);
+
+                Mat gray = sub; // 선언
+                Mat test2 = gray.Clone(); // 선언
+
+                Point[][] contours; // 좌표값저장
+                HierarchyIndex[] hierarchy; // ?
+
+                Cv2.InRange(sub, new Scalar(0,120, 120), new Scalar(255, 255, 255), gray); // 범위값
+                Cv2.FindContours(gray, out contours, out hierarchy, RetrievalModes.Tree, ContourApproximationModes.ApproxTC89KCOS);
+
+                foreach (Point[] p in contours)
+                {
+                    double length = Cv2.ArcLength(p, true); // 길이?
+                    double area = Cv2.ContourArea(p, true); // 구역?
+
+                    if (length < 3 && area < 1000 && p.Length < 10) continue; // 출력부분 위치잡기
+
+                    Rect boundingRect = Cv2.BoundingRect(p); // 해당부분 사각형으로 잡기위한 구역
+
+                    Cv2.Rectangle(test2, boundingRect, Scalar.Red, 10, LineTypes.AntiAlias); // 사각형으로 ? 출력함
+                }
+                Mat eeee = new Mat(); // 선언
+                Mat ffff = new Mat(); // 선언
+                Cv2.ImShow("dst", test2); // 최종출력
+                                          //Cv2.CvtColor(test2, eeee, ColorConversionCodes.GRAY2BGR); // 흑백 -> 컬러 색상변경
+                                          //Cv2.ImShow("변환", eeee);
+
+                Cv2.Add(mat, test2, ffff);
+                Cv2.ImShow("합쳐지나", ffff);
+
+                /*Mat sub = new Mat(); // 일단 선언
+
                 //Cv2.ImShow("te1", mat); // 디버그용
                 //Cv2.ImShow("te2", temp); // 디버그용
 
@@ -464,7 +501,7 @@ namespace WPF
                 // 4. 불량부분 사각형 테두리로 표시
                 // 5. 해당 정상이미지에 적용 
                 // ^ 서로비교까지 완료 -> 
-                /*Mat dan = Cv2.ImRead("test3.png"); // dan에 png파일을 불러옴
+                Mat dan = Cv2.ImRead("test3.png"); // dan에 png파일을 불러옴
                 Cv2.ImShow("source", dan); // 디버그용
 
                 Mat roi = new Mat(); // 관심영역설정
@@ -479,13 +516,13 @@ namespace WPF
                 Cv2.ImShow("qweasd", gray_mage2);
 
                 Mat newnew = new Mat();*/
-                
+
                 //Cv2.Absdiff(gray_mage1, gray_mage2, newnew); // 사진 차이
                 //Cv2.ImShow("ww", newnew); // 디버그
 
                 //[이미지 비교 유사도]
                 ///////////////////////////////////////////////////////////////////////////////////////////
-                
+
                 Mat aaaaa = new Mat();
                 Mat bbbbb = new Mat();
 
