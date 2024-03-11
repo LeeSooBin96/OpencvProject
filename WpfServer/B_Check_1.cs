@@ -1,63 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 // OpenCV 사용을 위한 using
 using OpenCvSharp;
-using OpenCvSharp.WpfExtensions;
 
 // Timer 사용을 위한 using
-using System.Windows.Threading;
-using System.Security.Cryptography;
-using System.Windows.Interop;
 using Point = OpenCvSharp.Point;
-using System.Windows.Media.Media3D;
 using Rect = OpenCvSharp.Rect;
-using Size = OpenCvSharp.Size;
-using System.Xml.Linq;
-using System.Diagnostics;
+
+//이미지 유사도 검사를 위한 using
+using Daneung;
 
 namespace ttest
 {
     public class B_Check_1
-    {
-        public static void Check_1(Mat t_frame)
-        {
-            //MainWindow MW = mw;
+    { //1번 제품을 검사하기 위한 로직
+        public static void Check_1(Mat r_frame,Mat t_frame)
+        { //정상제품 이미지와 클라이언트 화면 배열을 함께 받아와야한다.
+            Mat[] subImages = new Mat[3]; //분할한 화면을 저장할 Mat
+            Mat[] aaa = new Mat[3]; //원본을 저장해둘 Mat
+            //여기서 정상제품 이미지 크기 조정해야함 --비교할 이미지에 맞춰 크기 조정
+            //r_frame.Resize(new OpenCvSharp.Size(t_frame.Width/3,t_frame.Height));
 
-            //Mat t_frame = MW.frame.Clone(); //원본 복사하고
-
-            Mat[] subImages = new Mat[3];
-            Mat[] aaa = new Mat[3];
-
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++) //이제 분할된 화면들에 대해 검사 시작
             {
-                int width = t_frame.Width; //test 넓이 크기
-                int height = t_frame.Height; //높이
-                int subWidth = width / 3; //넒이 나누기 3
-                int subHeight = height;
+                int width = t_frame.Width; //test 넓이 크기 --검사할 화면의 너비 저장
+                int height = t_frame.Height; //높이 --검사할 화면의 높이
+                int subWidth = width / 3; //넒이 나누기 3 --분할 이미지의 너비
+                int subHeight = height; //분할 이미지 높이
 
-                int startX = i * subWidth;
-                int endX = (i + 1) * subWidth;
-                int startY = 0;
-                int endY = height - subHeight; //좌표계산
+                int startX = i * subWidth; //시작 좌표 x
+                int endX = (i + 1) * subWidth; //끝 좌표 x
+                int startY = 0; //시작 좌표 y
+                int endY = height - subHeight; //좌표계산 --끝 좌표 y
 
-                subImages[i] = t_frame.SubMat(new Rect(startX, startY, subWidth, subHeight)); //자르기
+                subImages[i] = t_frame.SubMat(new Rect(startX, startY, subWidth, subHeight)); //자르기 --화면 분할
 
                 aaa[i] = subImages[i].Clone(); //원본 복사하고
 
-                int roiWidth = 200;
-                int roiHeight = 100;
+                int roiWidth = 200; //사각형 구역 너비
+                int roiHeight = 100; //사각형 구역 높이
                 int x = 0; //x 좌표 시작 위치
                 int y = 0; //y 좌표 시작 위치
 
@@ -66,16 +46,16 @@ namespace ttest
                 Mat roi_1 = new Mat(M_roi_1, new Rect(x + 100, y + 50, x + roiWidth - 120, y + roiHeight - 10)); //관심 구역 지정
                 Cv2.CvtColor(roi_1, roi_1, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
                 Mat mask1 = new Mat();
-                Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑
-                Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
+                Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑 -- 색상 추출
+                Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple); //외곽선?
 
-                int pix = 1000;
+                int pix = 1000; //픽셀 기준
                 foreach (var c in contours1)
                 {
                     var area = Cv2.ContourArea(c);
-                    if (area > 1000) //픽셀단위  숫자 이상만
+                    if (area > pix) //픽셀단위  숫자 이상만
                     {
-                        string shape = GetShape(c);
+                        string shape = GetShape(c); //도형 추출
                         string name = "Yellow " + shape;
                         var M = Cv2.Moments(c);
                         var cx = (int)(M.M10 / M.M00) + 20;
@@ -83,6 +63,8 @@ namespace ttest
                         if (shape == "circle")
                         {
                             Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                            /*여기서 제품 바디의 상단부분 색상, 도형 검사 결과 저장해야함*/
+
                         }
                     }
                 }
@@ -99,6 +81,8 @@ namespace ttest
                 {
                     string name = "B-Checker";
                     Cv2.PutText(aaa[i], name, new Point(150, 200), HersheyFonts.HersheySimplex, 0.5, Scalar.Black, 2);
+                    /*제품의 중간부 공백이 아닌지 검사한 결과 저장*/
+
                 }
 
                 //3번째 영역
@@ -128,6 +112,8 @@ namespace ttest
                         if (shape == "square")
                         {
                             Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Red, 2);
+                            /*제품의 빨간 사각형의 존재 여부 저장*/
+
                         }
                     }
                 }
@@ -145,6 +131,7 @@ namespace ttest
                         if (shape == "triangle")
                         {
                             Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Blue, 2);
+                            /*제품의 파란 삼각형 존재 여부 저장*/
                         }
                     }
                 }
@@ -154,13 +141,16 @@ namespace ttest
 
                 Cv2.Rectangle(aaa[i], new Point(x + 110, y + 60), new Point(x + roiWidth - 30, y + roiHeight + 20), new Scalar(100, 255, 255), 1);
                 Cv2.Rectangle(aaa[i], new Point(x + 120, y + 130), new Point(x + roiWidth - 40, y + roiHeight + 130), new Scalar(100, 255, 255), 1);
+                //여기서 각 이미지 유사도 계산도 해야함
+                MatchingIMG.CalculateRateIMG(r_frame, subImages[i]);
             }
-
-            for (int i = 0; i < 3; i++)
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
-            }
-
+                for (int i = 0; i < 3; i++)
+                {
+                    Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
+                }
+            });
         }
         public static string GetShape(Point[] c)
         {

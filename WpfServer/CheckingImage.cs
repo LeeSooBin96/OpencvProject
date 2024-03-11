@@ -1,17 +1,10 @@
 ﻿using OpenCvSharp;
-using OpenCvSharp.WpfExtensions;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Runtime.DesignerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System;
+//취합 코드 네임스페이스 using
 using ttest;
+//using Daneung;
 
 namespace WpfServer
 { 
@@ -63,24 +56,28 @@ namespace WpfServer
             {
                 Cv2.ImShow("test"+ compBytes.Length.ToString(), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
             });
-            switch(num)
+            //일단은 검사 로직 완성 --연결만 하면됨. 내가 더 공부하자
+            /*Check_num 안에서 원본 이미지 화면 이미지 크기에 맞춰서 유사도 검사도 진행해야함*/
+            switch (num)
             {
                 case "1":
                     //1번 제품 검사
-                    B_Check_1.Check_1(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    B_Check_1.Check_1(Mat.FromImageData(normalP, ImreadModes.AnyColor),Mat.FromImageData(compBytes, ImreadModes.AnyColor));
                     break;
                 case "2":
                     //2번 제품 검사
-                    B_Check_2.Check_2(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    B_Check_2.Check_2(Mat.FromImageData(normalP, ImreadModes.AnyColor), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
                     break;
                 case "3":
                     //3번 제품 검사
-                    B_Check_3.Check_3(Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+                    B_Check_3.Check_3(Mat.FromImageData(normalP, ImreadModes.AnyColor), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
                     break;
                 default:
                     break;
             }
             /*1차 검사 : 색상과 도형 추출 및 일치 검사 마치고 그 결과를 받아서 저장해 둘 bool값 필요*/
+            //double rate = MatchingIMG.CalculateRateIMG(Mat.FromImageData(normalP, ImreadModes.AnyColor), Mat.FromImageData(compBytes, ImreadModes.AnyColor));
+            //MessageBox.Show("유사도" + String.Format("{0:P}", rate));
             /*2차 검사 : 정상 제품 이미지와 일치율 비교 기준은...어떻게 하려나 이것도 어느정도 이상이면 true 저장*/
         }
     }

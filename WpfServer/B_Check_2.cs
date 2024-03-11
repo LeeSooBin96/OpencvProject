@@ -26,12 +26,13 @@ using Rect = OpenCvSharp.Rect;
 using Size = OpenCvSharp.Size;
 using System.Xml.Linq;
 using System.Diagnostics;
+using Daneung;
 
 namespace ttest
 {
     public class B_Check_2
     {
-        public static void Check_2(Mat t_frame)
+        public static void Check_2(Mat r_frame, Mat t_frame)
         {
             //MainWindow MW = mw;
 
@@ -161,13 +162,15 @@ namespace ttest
                 Cv2.Rectangle(aaa[i], new Point(x + 110, y + 60), new Point(x + roiWidth - 30, y + roiHeight + 20), new Scalar(100, 255, 255), 1);
                 Cv2.Rectangle(aaa[i], new Point(x + 120, y + 130), new Point(x + roiWidth - 40, y + roiHeight + 130), new Scalar(100, 255, 255), 1);
 
-
+                MatchingIMG.CalculateRateIMG(r_frame, subImages[i]);
             }
-            for (int i = 0; i < 3; i++)
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
-            }
-
+                for (int i = 0; i < 3; i++)
+                {
+                    Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
+                }
+            });
 
 
         }

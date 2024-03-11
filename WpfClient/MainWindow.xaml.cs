@@ -111,8 +111,8 @@ namespace WpfClient
         }
 
         private void WorkStop(object sender, RoutedEventArgs e)
-        { 
-
+        {
+            notice.Content = "제품을 선택해주세요!";
         }
 
         private void CaptureScreen(object sender, RoutedEventArgs e)
