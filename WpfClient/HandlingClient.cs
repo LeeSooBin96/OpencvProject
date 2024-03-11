@@ -61,7 +61,14 @@ namespace WpfClient
 
             stream.Write(len, 0, 4);
             stream.Write(msgBytes, 0, msgBytes.Length); //데이터는 크기와 함께 한번에 보내기
-            //서버가 끊어 읽을 것
+            //서버가 알아서 읽을 것
+        }
+        public void SendData(byte[] msg) //오버로딩 만들어 버리면되지
+        {
+            byte[] len = BitConverter.GetBytes(msg.Length);
+
+            stream.Write(len, 0, 4);
+            stream.Write(msg, 0, msg.Length);
         }
         public byte[] RecvData()
         {
@@ -73,7 +80,6 @@ namespace WpfClient
 
             int readLen = stream.Read(buffer, 0, 4); //메시지 길이 수신
             if (readLen == 0) return null; //소켓 종료 시
-            MessageBox.Show(BitConverter.ToInt32(buffer, 0).ToString());
             int strLen = BitConverter.ToInt32(buffer, 0); //메시지 길이 저장
 
             if (strLen > BUF_SIZE)

@@ -4,6 +4,7 @@ using System.Text;
 //TCP
 using System.Net;
 using System.Net.Sockets;
+using System.Windows;
 
 namespace WpfServer
 {
@@ -54,6 +55,7 @@ namespace WpfServer
             //문득 궁금..메시지 길이만큼 한번에 받으면 다 받아질까? --받아지는듯? 로컬이라 그럴지도
             byte[] buffer = new byte[strLen]; //받아야할 바이트 배열 크기만큼 바이트 배열 생성
             stream.Read(buffer, 0, buffer.Length); //메시지 수신
+            //MessageBox.Show("수신"+recvLen.ToString());
             return buffer;
             //if (strLen > BUF_SIZE)
             //{ //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함

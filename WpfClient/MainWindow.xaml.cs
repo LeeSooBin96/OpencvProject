@@ -6,6 +6,8 @@ using OpenCvSharp;
 
 //Timer
 using System.Windows.Threading;
+using System.Text;
+using System.Collections.Generic;
 
 
 
@@ -118,7 +120,13 @@ namespace WpfClient
             if (client == null) return; //서버 연결 안되어있으면 동작 안함
             Mat shot = new Mat(); //객체 생성
             shot = frame; //현재 화면 저장 --이부분 안하고 바로 frame으로 보낼까
-            client.SendData("Screen@" + shot.ToString()); //서버에 화면 전송
+            //바이트 배열로 바꿔서 보내면 더 좋을듯 --안되나 보오
+            //MessageBox.Show("클"+shot.ToBytes().Length.ToString());
+            List<byte> arr = new List<byte>();
+            arr.AddRange(Encoding.Default.GetBytes("Screen@"));
+            arr.AddRange(shot.ToBytes());
+            //MessageBox.Show("클" + arr.ToArray().Length.ToString());
+            client.SendData(arr.ToArray()); //서버에 화면 전송
         }
     }
 }
