@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\opencvproject\\wpfserver\\checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "B_Check_1.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\B_Check_1.cs",
               "RelativeToolTip": "B_Check_1.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAQwCAAAAAFAAAA",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAQwCAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-11T02:16:52.639Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "CheckingImage.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAQwFMAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T23:18:49.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:18:49.813Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "HandlingServer.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAYwDkAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T07:37:04.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T07:37:04.587Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAkwFYAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-08T10:20:39.662Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T10:20:39.662Z"
             },
             {
               "$type": "Document",
@@ -129,8 +126,7 @@
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\OpencvProject\\WpfServer\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-08T10:20:40.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T10:20:40.018Z"
             }
           ]
         }
