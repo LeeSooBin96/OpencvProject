@@ -113,6 +113,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="B_Check_1.cs" />
+    <Compile Include="B_Check_2.cs" />
+    <Compile Include="B_Check_3.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
