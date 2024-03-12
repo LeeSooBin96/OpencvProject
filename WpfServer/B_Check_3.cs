@@ -1,37 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 // OpenCV 사용을 위한 using
 using OpenCvSharp;
-using OpenCvSharp.WpfExtensions;
 
 // Timer 사용을 위한 using
-using System.Windows.Threading;
-using System.Security.Cryptography;
-using System.Windows.Interop;
 using Point = OpenCvSharp.Point;
-using System.Windows.Media.Media3D;
 using Rect = OpenCvSharp.Rect;
-using Size = OpenCvSharp.Size;
-using System.Xml.Linq;
-using System.Diagnostics;
 using Daneung;
+using System.Threading.Tasks;
 
 namespace ttest
 {
     public class B_Check_3
     {
+        public static bool check_1 = false;
+        public static bool check_2 = false;
+        public static bool check_3 = false;
+        public static bool check_4 = false;
+
         public static bool Check_3(Mat r_frame, Mat t_frame)
         {
             //MainWindow MW = mw;
@@ -39,64 +24,82 @@ namespace ttest
             //Mat t_frame = MW.frame.Clone(); //원본 복사하고
 
             Mat[] subImages = new Mat[3];
-            Mat[] aaa = new Mat[3];
+            int width = t_frame.Width; //test 넓이 크기
+            int height = t_frame.Height; //높이
+            int subWidth = width / 3; //넒이 나누기 3
+            int subHeight = height;
 
             for (int i = 0; i < 3; i++)
             {
-                int width = t_frame.Width; //test 넓이 크기
-                int height = t_frame.Height; //높이
-                int subWidth = width / 3; //넒이 나누기 3
-                int subHeight = height;
 
                 int startX = i * subWidth;
-                int endX = (i + 1) * subWidth;
                 int startY = 0;
-                int endY = height - subHeight; //좌표계산
 
                 subImages[i] = t_frame.SubMat(new Rect(startX, startY, subWidth, subHeight)); //자르기
 
-                aaa[i] = subImages[i].Clone(); //원본 복사하고
+                First_area(subImages[i]); //첫번째 영역 
+                Second_area(subImages[i]); //두번째 영역
+                Third_area(subImages[i]); //세번째 영역
 
-                int roiWidth = 200;
-                int roiHeight = 100;
-                int x = 0; //x 좌표 시작 위치
-                int y = 0; //y 좌표 시작 위치
+                //await Task.Delay(100);
+                Check_result(i);
 
-                ////// 첫 번째 사각형 그리기 //aaa는 원본 복사한거
-                ////관심구역 그저 표현한거
 
-                //첫번째 영역
-                Mat M_roi_1 = aaa[i].Clone(); //원본 복사하고
-                Mat roi_1 = new Mat(M_roi_1, new Rect(x + 80, y + 70, x + roiWidth - 100, y + roiHeight)); //관심 구역 지정
+                MatchingIMG.CalculateRateIMG(r_frame, subImages[i]);
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Cv2.ImShow($"SubImage{(i + 1)}_3", subImages[i]); // show subImages_3
+                }
+            });
+
+            return false; //임시
+        }
+
+
+        public static async void First_area(Mat subImages)
+        {
+            await Task.Run(() =>
+            {
+                //Mat M_roi_3 = subImages.Clone(); //원본 복사하고
+
+                Mat roi_1 = new Mat(subImages, new Rect(80, 70, 100, 100)); //관심 구역 지정
                 Cv2.CvtColor(roi_1, roi_1, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
                 Mat mask1 = new Mat();
                 Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑
                 Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
-
-                int pix = 1000;
+                Cv2.Erode(mask1, mask1, null, iterations: 1);
+                Cv2.Dilate(mask1, mask1, null, iterations: 1);
                 foreach (var c in contours1)
                 {
                     var area = Cv2.ContourArea(c);
-                    if (area > 500) //픽셀단위  숫자 이상만
+                    if (area > 500)
                     {
                         string shape = GetShape(c);
                         string name = "Yellow " + shape;
                         var M = Cv2.Moments(c);
-                        var cx = (int)(M.M10 / M.M00) + 80;
-                        var cy = (int)(M.M01 / M.M00) + 70; //이 3놈 중앙 찾음
-                        //Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
-                        Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                        var cx = (int)(M.M10 / M.M00) + 20;
+                        var cy = (int)(M.M01 / M.M00) + 30; //이 3놈 중앙 찾음
+                        Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
                         if (shape == "circle")
                         {
-                            Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                            Cv2.PutText(subImages, name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                            check_1 = true;
                         }
                     }
-
                 }
+            });
+        }
 
-                //2번째 영역
-                Mat M_roi_2 = aaa[i].Clone();
-                Mat roi_2 = new Mat(M_roi_2, new Rect(x + 130, y + 170, x + roiWidth - 160, y + roiHeight)); //관심 구역 지정
+
+        public static async void Second_area(Mat subImages)
+        {
+
+            await Task.Run(() =>
+            {
+                Mat roi_2 = new Mat(subImages, new Rect(130, 170, 40, 100)); //관심 구역 지정
                 Cv2.CvtColor(roi_2, roi_2, ColorConversionCodes.BGR2GRAY); //흑백으로 만들고
                 Cv2.Threshold(roi_2, roi_2, 127, 255, ThresholdTypes.Binary); //
                 Cv2.FindContours(roi_2, out var contours2, out var hierarchy2, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
@@ -104,49 +107,49 @@ namespace ttest
                 if (contours2.Length > 1)
                 {
                     string name = "B-Checker";
-                    Cv2.PutText(aaa[i], name, new Point(150, 200), HersheyFonts.HersheySimplex, 0.5, Scalar.Black, 2);
+                    Cv2.PutText(subImages, name, new Point(150, 200), HersheyFonts.HersheySimplex, 0.5, Scalar.Black, 2);
+                    check_2 = true;
                 }
-
-                //3번째 영역
-                Mat M_roi_3 = aaa[i].Clone(); //원본 복사하고
-                Mat roi_3 = new Mat(M_roi_3, new Rect(x + 10, y + 150, roiWidth - 20, roiHeight + 130));
-
+            });
+        }
+        public static async void Third_area(Mat subImages)
+        {
+            await Task.Run(() =>
+            {
+                //Mat M_roi_3 = subImages.Clone(); //원본 복사하고
+                Mat roi_3 = new Mat(subImages, new Rect(10, 150, 180, 230));
                 Cv2.CvtColor(roi_3, roi_3, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
-
                 Mat mask3 = new Mat();
                 Cv2.InRange(roi_3, new Scalar(0, 50, 120), new Scalar(10, 255, 255), mask3); //빨강
                 Mat mask4 = new Mat();
                 Cv2.InRange(roi_3, new Scalar(90, 60, 0), new Scalar(121, 255, 255), mask4); //파랑
-
                 Cv2.FindContours(mask3, out var contours3, out var hierarchy3, RetrievalModes.CComp, ContourApproximationModes.ApproxSimple);
+                Cv2.FindContours(mask4, out var contours4, out var hierarchy4, RetrievalModes.CComp, ContourApproximationModes.ApproxSimple);
                 Cv2.Erode(mask3, mask3, null, iterations: 1);
                 Cv2.Dilate(mask3, mask3, null, iterations: 1);
-
-                Cv2.FindContours(mask4, out var contours4, out var hierarchy4, RetrievalModes.CComp, ContourApproximationModes.ApproxSimple);
                 Cv2.Erode(mask4, mask4, null, iterations: 1);
                 Cv2.Dilate(mask4, mask4, null, iterations: 1);
-
                 foreach (var c in contours3)
                 {
                     var area = Cv2.ContourArea(c);
-                    if (area > pix)
+                    if (area > 1000)
                     {
                         string shape = GetShape(c); //*형상구분
                         string name = "Red " + shape;
                         var M = Cv2.Moments(c);
-                        var cx = (int)(M.M10 / M.M00)+10;
-                        var cy = (int)(M.M01 / M.M00) + 150; //이 3놈 중앙 찾음
-                                                             //Cv2.DrawContours(aaa, contours3, -1, Scalar.Red, 2); //윤곽그리고
+                        var cx = (int)(M.M10 / M.M00);
+                        var cy = (int)(M.M01 / M.M00) + 220; //이 3놈 중앙 찾음
                         if (shape == "pentagon")
                         {
-                            Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Red, 2);
+                            Cv2.PutText(subImages, name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Red, 2);
+                            check_3 = true;
                         }
                     }
                 }
                 foreach (var c in contours4)
                 {
                     var area = Cv2.ContourArea(c);
-                    if (area > pix)
+                    if (area > 1000)
                     {
                         string shape = GetShape(c); //*형상구분
                         string name = "Blue " + shape;
@@ -155,22 +158,65 @@ namespace ttest
                         var cy = (int)(M.M01 / M.M00) + 220; //이 3놈 중앙 찾음
                         if (shape == "triangle")
                         {
-                            Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Blue, 2);
+                            Cv2.PutText(subImages, name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Blue, 2);
+                            check_4 = true;
                         }
                     }
                 }
-                MatchingIMG.CalculateRateIMG(r_frame, subImages[i]);
-            }
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
-                }
             });
-
-            return false; //임시
         }
+
+        public static void Check_result(int a)
+        {
+            if (a == 0)//1번 제품 검사 결과
+            {
+                if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
+                {
+                    MessageBox.Show("1번 제품 합격");
+                }
+                else
+                {
+                    MessageBox.Show("1번 제품 불량");
+                }
+                check_1 = false;
+                check_2 = false;
+                check_3 = false;
+                check_4 = false;
+            }
+            else if (a == 1)//1번 제품 검사
+            {
+                if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
+                {
+                    MessageBox.Show("2번 제품 합격");
+                }
+                else
+                {
+                    MessageBox.Show("2번 제품 불량");
+                }
+                check_1 = false;
+                check_2 = false;
+                check_3 = false;
+                check_4 = false;
+            }
+            else if (a == 2)//1번 제품 검사
+            {
+                if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
+                {
+                    MessageBox.Show("3번 제품 합격");
+                }
+                else
+                {
+                    MessageBox.Show("3번 제품 불량");
+                }
+                check_1 = false;
+                check_2 = false;
+                check_3 = false;
+                check_4 = false;
+            }
+        }
+
+
+
         public static string GetShape(Point[] c)
         {
             string shape = "unidentified";
