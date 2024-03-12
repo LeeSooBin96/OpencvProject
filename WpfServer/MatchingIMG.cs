@@ -81,7 +81,7 @@ namespace Daneung
                 Mat bbbbb = new Mat();
 
                 Mat screen = null, find = null, res = null;
-
+                //Cv2.CvtColor(temp, temp, ColorConversionCodes.GRAY2BGR);
 
                 Mat test222 = temp.Clone();
                 Cv2.Resize(mat, aaaaa, new OpenCvSharp.Size(158, 463)); // mat은 real1.png

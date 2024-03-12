@@ -13,7 +13,7 @@ namespace ttest
 {
     public class B_Check_1
     { //1번 제품을 검사하기 위한 로직
-        public static void Check_1(Mat r_frame,Mat t_frame)
+        public static bool Check_1(Mat r_frame,Mat t_frame)
         { //정상제품 이미지와 클라이언트 화면 배열을 함께 받아와야한다.
             Mat[] subImages = new Mat[3]; //분할한 화면을 저장할 Mat
             Mat[] aaa = new Mat[3]; //원본을 저장해둘 Mat
@@ -151,6 +151,8 @@ namespace ttest
                     Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
                 }
             });
+
+            return false; //임시
         }
         public static string GetShape(Point[] c)
         {

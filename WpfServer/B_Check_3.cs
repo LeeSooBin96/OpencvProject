@@ -32,7 +32,7 @@ namespace ttest
 {
     public class B_Check_3
     {
-        public static void Check_3(Mat r_frame, Mat t_frame)
+        public static bool Check_3(Mat r_frame, Mat t_frame)
         {
             //MainWindow MW = mw;
 
@@ -168,6 +168,8 @@ namespace ttest
                     Cv2.ImShow($"SubImage{(i + 1)}_3", aaa[i]); // show subImages_3
                 }
             });
+
+            return false; //임시
         }
         public static string GetShape(Point[] c)
         {

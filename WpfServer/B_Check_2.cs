@@ -32,7 +32,7 @@ namespace ttest
 {
     public class B_Check_2
     {
-        public static void Check_2(Mat r_frame, Mat t_frame)
+        public static bool Check_2(Mat r_frame, Mat t_frame)
         {
             //MainWindow MW = mw;
 
@@ -66,33 +66,34 @@ namespace ttest
                 ////관심구역 그저 표현한거
 
                 //첫번째 영역
-                Mat M_roi_1 = aaa[i].Clone(); //원본 복사하고
-                Mat roi_1 = new Mat(M_roi_1, new Rect(x + 100, y + 50, x + roiWidth - 120, y + roiHeight - 10)); //관심 구역 지정
-                Cv2.CvtColor(roi_1, roi_1, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
-                Mat mask1 = new Mat();
-                Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑
-                Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
+                //Mat M_roi_1 = aaa[i].Clone(); //원본 복사하고
+                //Mat roi_1 = new Mat(M_roi_1, new Rect(x + 100, y + 50, x + roiWidth - 120, y + roiHeight - 10)); //관심 구역 지정
+                //Cv2.CvtColor(roi_1, roi_1, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
+                //Mat mask1 = new Mat();
+                //Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑
+                //Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
 
                 int pix = 1000;
-                foreach (var c in contours1)
-                {
-                    var area = Cv2.ContourArea(c);
-                    if (area > 1000) //픽셀단위  숫자 이상만
-                    {
-                        string shape = GetShape(c);
-                        string name = "Yellow " + shape;
-                        var M = Cv2.Moments(c);
-                        var cx = (int)(M.M10 / M.M00) + 20;
-                        var cy = (int)(M.M01 / M.M00) + 30; //이 3놈 중앙 찾음
-                        Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
-                        Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
-                        if (shape == "circle")
-                        {
-                            Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
-                        }
-                    }
+                //foreach (var c in contours1)
+                //{
+                //    var area = Cv2.ContourArea(c);
+                //    if (area > 1000) //픽셀단위  숫자 이상만
+                //    {
+                //        string shape = GetShape(c);
+                //        string name = "Yellow " + shape;
+                //        var M = Cv2.Moments(c);
+                //        var cx = (int)(M.M10 / M.M00) + 20;
+                //        var cy = (int)(M.M01 / M.M00) + 30; //이 3놈 중앙 찾음
+                //        Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
+                //        Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                //        if (shape == "circle")
+                //        {
+                //            Cv2.PutText(aaa[i], name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                //        }
+                //    }
 
-                }
+                //}
+                first_check(subImages[0]);
 
                 //2번째 영역
                 Mat M_roi_2 = aaa[i].Clone();
@@ -172,8 +173,43 @@ namespace ttest
                 }
             });
 
-
+            return false; //임시
         }
+        public static async void first_check(Mat subImages)
+        {
+            await Task.Run(() =>
+            {
+                Mat M_roi_1 = subImages.Clone(); //원본 복사하고
+                Mat roi_1 = new Mat(M_roi_1, new Rect(100, 50, 80, 90)); //관심 구역 지정
+                Cv2.CvtColor(roi_1, roi_1, ColorConversionCodes.BGR2HSV); //관심 부분만 HSV화 시킴
+                Mat mask1 = new Mat();
+                Cv2.InRange(roi_1, new Scalar(20, 50, 50), new Scalar(30, 255, 255), mask1); //노랑
+                Cv2.FindContours(mask1, out var contours1, out var hierarchy1, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple);
+
+                //int pix = 1000;
+                foreach (var c in contours1)
+                {
+                    var area = Cv2.ContourArea(c);
+                    if (area > 1000) //픽셀단위  숫자 이상만
+                    {
+                        string shape = GetShape(c);
+                        string name = "Yellow " + shape;
+                        var M = Cv2.Moments(c);
+                        var cx = (int)(M.M10 / M.M00) + 20;
+                        var cy = (int)(M.M01 / M.M00) + 30; //이 3놈 중앙 찾음
+                        Cv2.DrawContours(roi_1, contours1, -1, Scalar.Red, 2); //윤곽그리고
+                        Cv2.PutText(subImages, name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                        if (shape == "circle")
+                        {
+                            Cv2.PutText(subImages, name, new Point(cx, cy), HersheyFonts.HersheySimplex, 0.5, Scalar.Yellow, 2);
+                        }
+                    }
+
+                }
+            });
+        }
+
+
         public static string GetShape(Point[] c)
         {
             string shape = "unidentified";

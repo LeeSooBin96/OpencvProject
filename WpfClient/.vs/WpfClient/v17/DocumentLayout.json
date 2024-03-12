@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAkwBwAAAAJAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAzwDsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T11:00:22.068Z",
               "EditorCaption": ""
@@ -50,8 +50,7 @@
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-08T11:00:22.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T11:00:22.423Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "HandlingClient.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T23:05:59.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:05:59.75Z"
             }
           ]
         }

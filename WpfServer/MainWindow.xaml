@@ -5,9 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfServer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400"
+        Title="Server" Height="300" Width="800"
         Closed="Window_Closed">
     <Grid>
-        <Image Name="screen" Margin="10,10,10,20"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Name="screen" Margin="10,10,10,20" />
+        <ListView Name="factoryListView" Grid.Column="1" BorderThickness="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="접속아이피" Width="80" DisplayMemberBinding="{Binding ip}"/>
+                    <GridViewColumn Header="제품" Width="70" DisplayMemberBinding="{Binding product}"/>
+                    <GridViewColumn Header="시작시간" Width="150" DisplayMemberBinding="{Binding startTime}"/>
+                    <GridViewColumn Header="정상제품" Width="55" DisplayMemberBinding="{Binding normal}"/>
+                    <GridViewColumn Header="불량제품" Width="55" DisplayMemberBinding="{Binding defect}"/>
+                    <GridViewColumn Header="총작업량" Width="55" DisplayMemberBinding="{Binding total}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

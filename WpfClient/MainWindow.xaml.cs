@@ -100,6 +100,10 @@ namespace WpfClient
         {
             // 0번 장비로 생성된 VideoCapture 객체에서 frame을 읽어옴
             cam.Read(frame);
+            //화면에 사각형 구역 그리기
+            Cv2.Rectangle(frame, new OpenCvSharp.Point(30, 50), new OpenCvSharp.Point(200, 450), new Scalar(0, 0, 0), 2);
+            Cv2.Rectangle(frame, new OpenCvSharp.Point(230, 50), new OpenCvSharp.Point(400, 450), new Scalar(0, 0, 0), 2);
+            Cv2.Rectangle(frame, new OpenCvSharp.Point(430, 50), new OpenCvSharp.Point(600, 450), new Scalar(0, 0, 0), 2);
             // 읽어온 Mat 데이터를 Bitmap 데이터로 변경 후 컨트롤에 그려줌
             screen.Source = OpenCvSharp.WpfExtensions.WriteableBitmapConverter.ToWriteableBitmap(frame);
         }
@@ -129,8 +133,17 @@ namespace WpfClient
             //MessageBox.Show("클" + arr.ToArray().Length.ToString());
             client.SendData(arr.ToArray()); //서버에 화면 전송
             /*검사 결과 수신 받아야한다.
-             NG면 NG팝업창이랑 NG부분 체크된 사진 띄우기
+             NG면 NG팝업창(이랑 NG부분 체크된 사진) 띄우기
             PASS면 PASS팝업창 띄우기.*/
+            string result = Encoding.Default.GetString(client.RecvData());
+            if(result =="PASS")
+            {
+                MessageBox.Show("PASS");
+            }
+            else if(result=="NG")
+            {
+                MessageBox.Show("NG");
+            }
         }
     }
 }
