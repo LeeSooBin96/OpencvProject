@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\b_check_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:b_check_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:b_check_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\wpfserver\\b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|c:\\users\\aiot\\documents\\github\\wpfserver\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:b_check_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:checkingimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|solutionrelative:handlingserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A4A42C1-554B-4F6F-BBB7-0B4D62DC6F80}|WpfServer.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -42,8 +42,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 7,
@@ -54,29 +58,24 @@
               "RelativeToolTip": "MatchingIMG.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAQwFwAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T08:34:13.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "WhenOpened": "2024-03-11T08:34:13.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "B_Check_1.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_1.cs",
               "RelativeDocumentMoniker": "B_Check_1.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_1.cs",
               "RelativeToolTip": "B_Check_1.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAAwJoAAAAeAAAA",
+              "ViewState": "AQIAAMQAAAAAAAAAAAAuwPkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-11T02:16:52.639Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CheckingImage.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\CheckingImage.cs",
               "RelativeDocumentMoniker": "CheckingImage.cs",
@@ -84,57 +83,56 @@
               "RelativeToolTip": "CheckingImage.cs",
               "ViewState": "AQIAAD4AAAAAAAAAAAAYwFYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T23:18:49.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:18:49.813Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "HandlingServer.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\HandlingServer.cs",
               "RelativeDocumentMoniker": "HandlingServer.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\HandlingServer.cs",
               "RelativeToolTip": "HandlingServer.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC8AAAA9AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-10T07:37:04.587Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF4AAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGYAAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T10:20:39.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "B_Check_2.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_2.cs",
               "RelativeDocumentMoniker": "B_Check_2.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_2.cs",
               "RelativeToolTip": "B_Check_2.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAowK8AAAAeAAAA",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAqwO4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-11T06:12:55.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "B_Check_3.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_3.cs",
               "RelativeDocumentMoniker": "B_Check_3.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\B_Check_3.cs",
               "RelativeToolTip": "B_Check_3.cs",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAQwJ8AAAAVAAAA",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAkwK8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-11T06:13:43.338Z",
               "EditorCaption": ""
@@ -148,8 +146,7 @@
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfServer\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-08T10:20:40.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T10:20:40.018Z"
             }
           ]
         }

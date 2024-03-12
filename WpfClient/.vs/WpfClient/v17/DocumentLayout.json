@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|c:\\users\\aiot\\documents\\github\\wpfclient\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD77E5E5-E00D-49D8-AD68-A3B5F58C59CB}|WpfClient.csproj|solutionrelative:handlingclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,39 +30,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAzwDsAAAAJAAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAswCcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T11:00:22.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-08T11:00:22.423Z"
+              "WhenOpened": "2024-03-08T11:00:22.423Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "HandlingClient.cs",
               "DocumentMoniker": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\HandlingClient.cs",
               "RelativeDocumentMoniker": "HandlingClient.cs",
               "ToolTip": "C:\\Users\\Aiot\\Documents\\GitHub\\WpfClient\\HandlingClient.cs",
               "RelativeToolTip": "HandlingClient.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABwAAAANAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAYwEwAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T23:05:59.75Z"
+              "WhenOpened": "2024-03-10T23:05:59.75Z",
+              "EditorCaption": ""
             }
           ]
         }

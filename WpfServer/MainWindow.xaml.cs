@@ -94,11 +94,15 @@ namespace WpfServer
                             //이제 체크해야함
                             if(CKimg.CompareWith(arr.ToArray(),this)) //PASS
                             {
-                                stream.Write(Encoding.Default.GetBytes("PASS"),0, Encoding.Default.GetBytes("PASS").Length);
+                                byte[] sendMSG = Encoding.Default.GetBytes("PASS");
+                                stream.Write(BitConverter.GetBytes(sendMSG.Length), 0, 4);
+                                stream.Write(sendMSG, 0, sendMSG.Length);
                             }
                             else //NG
                             {
-                                stream.Write(Encoding.Default.GetBytes("NG"), 0, Encoding.Default.GetBytes("NG").Length);
+                                byte[] sendMSG = Encoding.Default.GetBytes("NG");
+                                stream.Write(BitConverter.GetBytes(sendMSG.Length), 0, 4);
+                                stream.Write(sendMSG, 0, sendMSG.Length);
                             }
                             /*체크 결과 클라이언트에게 송신해야하는 데?
                              NG면 NG여부와 전송할 추출 사진 크기, 사진 파일 전송
