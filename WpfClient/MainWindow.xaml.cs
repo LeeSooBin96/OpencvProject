@@ -8,6 +8,8 @@ using OpenCvSharp;
 using System.Windows.Threading;
 using System.Text;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Media;
 
 
 
@@ -100,8 +102,22 @@ namespace WpfClient
         {
             // 0번 장비로 생성된 VideoCapture 객체에서 frame을 읽어옴
             cam.Read(frame);
+            Mat represent = frame.Clone();
+            //화면에 사각형 구역 그리기
+            if (productName.Text == "product 3")
+            {
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(20, 90), new OpenCvSharp.Point(190, 360), new Scalar(121, 255, 255), 2);
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(230, 90), new OpenCvSharp.Point(400, 360), new Scalar(121, 255, 255), 2);
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(440, 90), new OpenCvSharp.Point(600, 360), new Scalar(121, 255, 255), 2);
+            }
+            else
+            {
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(40, 60), new OpenCvSharp.Point(170, 450), new Scalar(121, 255, 255), 2);
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(260, 60), new OpenCvSharp.Point(380, 450), new Scalar(121, 255, 255), 2);
+                Cv2.Rectangle(represent, new OpenCvSharp.Point(480, 60), new OpenCvSharp.Point(600, 450), new Scalar(121, 255, 255), 2);
+            }
             // 읽어온 Mat 데이터를 Bitmap 데이터로 변경 후 컨트롤에 그려줌
-            screen.Source = OpenCvSharp.WpfExtensions.WriteableBitmapConverter.ToWriteableBitmap(frame);
+            screen.Source = OpenCvSharp.WpfExtensions.WriteableBitmapConverter.ToWriteableBitmap(represent);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -111,14 +127,15 @@ namespace WpfClient
         }
 
         private void WorkStop(object sender, RoutedEventArgs e)
-        { 
-
+        {
+            notice.Content = "제품을 선택해주세요!";
         }
 
         private void CaptureScreen(object sender, RoutedEventArgs e)
         {
             /*NG나 PASS팝업창이 떠있는 경우 닫아야함*/
             if (client == null) return; //서버 연결 안되어있으면 동작 안함
+            capture.IsEnabled = false; //결과 수신시까지 버튼 비활성화
             Mat shot = new Mat(); //객체 생성
             shot = frame; //현재 화면 저장 --이부분 안하고 바로 frame으로 보낼까
             //바이트 배열로 바꿔서 보내면 더 좋을듯 --안되나 보오
@@ -129,8 +146,21 @@ namespace WpfClient
             //MessageBox.Show("클" + arr.ToArray().Length.ToString());
             client.SendData(arr.ToArray()); //서버에 화면 전송
             /*검사 결과 수신 받아야한다.
-             NG면 NG팝업창이랑 NG부분 체크된 사진 띄우기
+             NG면 NG팝업창(이랑 NG부분 체크된 사진) 띄우기
             PASS면 PASS팝업창 띄우기.*/
+            string result = Encoding.Default.GetString(client.RecvData());
+            resultLBL.Content = result;
+            if(result == "PASS")
+            {
+                MessageBox.Show("PASS");
+                resultLBL.Background = System.Windows.Media.Brushes.Green;
+            }
+            else if(result=="NG")
+            {
+                MessageBox.Show("NG");
+                resultLBL.Background = System.Windows.Media.Brushes.Red;
+            }
+            capture.IsEnabled = true;
         }
     }
 }

@@ -85,25 +85,6 @@ namespace WpfClient
             byte[] buffer = new byte[strLen]; //받을 메시지 길이만큼
             stream.Read(buffer, 0, buffer.Length);
             return buffer;
-            //if (strLen > BUF_SIZE)
-            //{ //메시지 길이가 더 크면 버퍼 사이즈대로 나눠서 받아야함
-            //    List<byte> bufArr = new List<byte>();
-            //    for (int i = 0; i < strLen / BUF_SIZE; i++)
-            //    { //버퍼사이즈 만큼 읽어 들이기
-            //        stream.Read(buffer, 0, BUF_SIZE);
-            //        bufArr.AddRange(buffer);
-            //    }
-            //    stream.Read(buffer, 0, strLen % BUF_SIZE); //나머지 읽기
-            //    MessageBox.Show((strLen % BUF_SIZE).ToString());
-            //    bufArr.AddRange(buffer);
-            //    MessageBox.Show("수신된 데이터 크기:" + bufArr.Count.ToString());
-            //    return bufArr.ToArray();
-            //}
-            //else
-            //{ //버퍼 사이즈가 메시지 길이보다 크면 메시지 길이만큼
-            //    stream.Read(buffer, 0, strLen);
-            //    return buffer;
-            //}
         }
     }
 }
