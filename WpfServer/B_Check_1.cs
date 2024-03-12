@@ -21,7 +21,7 @@ namespace ttest
 
 
 
-        public static bool Check_1(Mat r_frame,Mat t_frame)
+        public static bool Check_1(Mat r_frame, Mat t_frame)
         { //정상제품 이미지와 클라이언트 화면 배열을 함께 받아와야한다.
             int width = t_frame.Width; //test 넓이 크기
             int height = t_frame.Height; //높이

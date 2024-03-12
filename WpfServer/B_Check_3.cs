@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 // OpenCV 사용을 위한 using
 using OpenCvSharp;
 
@@ -28,6 +29,8 @@ namespace ttest
             int height = t_frame.Height; //높이
             int subWidth = width / 3; //넒이 나누기 3
             int subHeight = height;
+            //최종 검사 결과
+            List<bool> result = new List<bool>();
 
             for (int i = 0; i < 3; i++)
             {
@@ -42,7 +45,7 @@ namespace ttest
                 Third_area(subImages[i]); //세번째 영역
 
                 //await Task.Delay(100);
-                Check_result(i);
+                result.Add(Check_result(i));
 
 
                 MatchingIMG.CalculateRateIMG(r_frame, subImages[i]);
@@ -55,7 +58,9 @@ namespace ttest
                 }
             });
 
-            return false; //임시
+            foreach (bool i in result) //하나라도 false있으면
+                if (!i) return false;
+            return true; //하나도 없으면
         }
 
 
@@ -166,17 +171,18 @@ namespace ttest
             });
         }
 
-        public static void Check_result(int a)
+        public static bool Check_result(int a)
         {
+            bool ck=false;
             if (a == 0)//1번 제품 검사 결과
             {
                 if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
                 {
-                    MessageBox.Show("1번 제품 합격");
+                    MessageBox.Show("1번 제품 합격"); ck = true;
                 }
                 else
                 {
-                    MessageBox.Show("1번 제품 불량");
+                    MessageBox.Show("1번 제품 불량"); ck = false;
                 }
                 check_1 = false;
                 check_2 = false;
@@ -187,11 +193,11 @@ namespace ttest
             {
                 if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
                 {
-                    MessageBox.Show("2번 제품 합격");
+                    MessageBox.Show("2번 제품 합격"); ck = true;
                 }
                 else
                 {
-                    MessageBox.Show("2번 제품 불량");
+                    MessageBox.Show("2번 제품 불량"); ck = false;
                 }
                 check_1 = false;
                 check_2 = false;
@@ -202,17 +208,18 @@ namespace ttest
             {
                 if (check_1 == true && check_2 == true && check_3 == true && check_4 == true)
                 {
-                    MessageBox.Show("3번 제품 합격");
+                    MessageBox.Show("3번 제품 합격"); ck = true;
                 }
                 else
                 {
-                    MessageBox.Show("3번 제품 불량");
+                    MessageBox.Show("3번 제품 불량"); ck = false;
                 }
                 check_1 = false;
                 check_2 = false;
                 check_3 = false;
                 check_4 = false;
             }
+            return ck;
         }
 
 
