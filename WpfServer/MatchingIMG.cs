@@ -57,7 +57,7 @@ namespace Daneung
                     double length = Cv2.ArcLength(p, true); // 길이?
                     double area = Cv2.ContourArea(p, true); // 구역?
 
-                    if (length < 1 && area < 100 && p.Length < 1) continue; // 출력부분 위치잡기
+                    if (length < 300 && area < 1000 && p.Length < 300) continue; // 출력부분 위치잡기
 
                     OpenCvSharp.Rect boundingRect = Cv2.BoundingRect(p); // 해당부분 사각형으로 잡기위한 구역
 
