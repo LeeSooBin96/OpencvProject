@@ -12,6 +12,7 @@ using Rect = OpenCvSharp.Rect;
 using Daneung;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
 
 namespace ttest
 {
@@ -43,7 +44,7 @@ namespace ttest
                 int startY = 0;
 
                 subImages[i] = t_frame.SubMat(new Rect(startX, startY, subWidth, subHeight)); //자르기 --화면 분할
-
+                
                 First_area(subImages[i]); //첫번째 영역 
                 Second_area(subImages[i]); //두번째 영역
                 Third_area(subImages[i]); //세번째 영역
@@ -61,6 +62,7 @@ namespace ttest
                 ckList.Add(Check_result(i));//bool 결과 전에 딜레이줘야함
 
             }
+            
             Application.Current.Dispatcher.Invoke(() =>
             {
                 //for (int i = 0; i < 3; i++)

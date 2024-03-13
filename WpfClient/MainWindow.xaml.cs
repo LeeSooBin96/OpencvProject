@@ -42,7 +42,7 @@ namespace WpfClient
             MessageBox.Show("업무가 시작됩니다.");
 
             if(client==null) client = new HandlingClient();
-            if(client.ConnectingServer("10.10.20.98", 6101))
+            if(client.ConnectingServer("10.10.20.107", 6101))
             { //연결 성공
                 client.SendData("Product@" + productName.Text);
             }
@@ -166,12 +166,12 @@ namespace WpfClient
             resultLBL.Content = result;
             if(result == "PASS")
             {
-                MessageBox.Show("PASS");
+                //MessageBox.Show("PASS");
                 resultLBL.Background = System.Windows.Media.Brushes.Green;
             }
             else if(result=="NG")
             {
-                MessageBox.Show("NG");
+                //MessageBox.Show("NG");
                 resultLBL.Background = System.Windows.Media.Brushes.Red;
             }
             capture.IsEnabled = true;

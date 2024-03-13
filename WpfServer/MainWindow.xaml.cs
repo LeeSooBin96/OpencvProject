@@ -28,7 +28,7 @@ namespace WpfServer
         private void ServerInit() //서버 정보 초기화 및 오픈
         {
             server = new HandlingServer();
-            if (server.ServerOpen("10.10.20.98", 6101))
+            if (server.ServerOpen("10.10.20.107", 6101))
             {
                 ClientHandle(); //비동기로 실행될 클라이언트 연결 받는 메소드
                 MessageBox.Show("서버 오픈 완료");

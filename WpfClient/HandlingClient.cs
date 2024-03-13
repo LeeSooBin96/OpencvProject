@@ -27,7 +27,7 @@ namespace WpfClient
                 errMSG = "이미 서버와 연결되어있습니다.";
                 return false;
             }
-            string bindIP = "10.10.20.98"; //클라이언트 자체 아이피
+            string bindIP = "10.10.20.107"; //클라이언트 자체 아이피
             const int bindPort = 0; //포트번호 자동 할당
 
             try

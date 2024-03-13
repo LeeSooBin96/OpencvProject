@@ -10,6 +10,7 @@ using Daneung;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using System.IO;
 
 namespace ttest
 {
@@ -41,7 +42,7 @@ namespace ttest
                 int startY = 0;
 
                 subImages[i] = t_frame.SubMat(new Rect(startX, startY, subWidth, subHeight)); //자르기
-
+                
                 First_area(subImages[i]); //첫번째 영역 
                 Second_area(subImages[i]); //두번째 영역
                 Third_area(subImages[i]); //세번째 영역
