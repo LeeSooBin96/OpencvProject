@@ -40,7 +40,7 @@ namespace WpfClient
             MessageBox.Show("업무가 시작됩니다.");
 
             if(client==null) client = new HandlingClient();
-            if(client.ConnectingServer("10.10.20.98", 6101))
+            if(client.ConnectingServer("10.10.20.107", 6101))
             { //연결 성공
                 client.SendData("Product@" + productName.Text);
             }
