@@ -16,7 +16,7 @@ namespace WpfServer
     {
         byte[] normalP = null; //정상제품 이미지 저장할 바이트 배열
         string num;
-        int myNum;
+        public int myNum; //테이블 인덱스
 
         public CheckingImage(string productName,MainWindow window) //생성자
         {

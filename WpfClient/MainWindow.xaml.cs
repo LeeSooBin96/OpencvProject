@@ -128,7 +128,21 @@ namespace WpfClient
 
         private void WorkStop(object sender, RoutedEventArgs e)
         {
+            //설정 값 초기화
+            productName.SelectedIndex = -1;
             notice.Content = "제품을 선택해주세요!";
+            resultLBL.Content = "";
+            resultLBL.Background = System.Windows.Media.Brushes.White;
+            //일일 작업량 요청
+            client.SendData("Quit");
+            byte[] buffer = client.RecvData();
+            string workload = Encoding.Default.GetString(buffer);
+
+            MessageBox.Show("오늘 총 작업량   : " + workload.Split('@')[0] + "\n"
+                           + "정상 제품 수      : " + workload.Split('@')[1] + "\n"
+                           + "불량 제품 수      : " + workload.Split('@')[2]);
+            //서버와 연결 종료
+            client.ClosingConnect();
         }
 
         private void CaptureScreen(object sender, RoutedEventArgs e)
@@ -162,5 +176,6 @@ namespace WpfClient
             }
             capture.IsEnabled = true;
         }
+
     }
 }

@@ -11,6 +11,8 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Runtime.Remoting;
 using System.Net;
+using System.Windows.Markup.Localizer;
+using System.Linq;
 
 namespace WpfServer
 {
@@ -103,6 +105,12 @@ namespace WpfServer
                             /*체크 결과 클라이언트에게 송신해야하는 데?
                              NG면 NG여부와 전송할 추출 사진 크기, 사진 파일 전송
                             PASS면 PASS만*/
+                            break;
+                        case "Quit":
+                            //총작업량@처리된정상제품수@불량제품수
+                            FactoryData data = FactoryData.GetInstance().ElementAt(CKimg.myNum);
+                            server.SendData(stream, data.total.ToString() + "@" + data.normal.ToString() + "@"
+                                + data.defect.ToString());
                             break;
 
                     }
